@@ -211,17 +211,26 @@ python train.py --strategy car_sr --sequence partial --steps 6000 --seed 42 --sa
 python evaluate.py --checkpoint results/benchmarks/car_sr_partial_seed42/agent.pt --sequence partial --episodes 20
 ```
 
-#### 4. Run the Full Multi-Seed Benchmark Suite
+#### 4. Live Interactive Visualization & GIF Demo
+```bash
+# Watch the trained agent balance live in a GUI window
+python scripts/visualize_agent.py --checkpoint results/benchmarks/car_sr_partial_seed42/agent.pt --mode human
+
+# Or render and save an annotated demonstration GIF
+python scripts/visualize_agent.py --checkpoint results/benchmarks/car_sr_partial_seed42/agent.pt --mode gif --output-gif results/plots/agent_demo.gif
+```
+
+#### 5. Run the Full Multi-Seed Benchmark Suite
 ```bash
 python scripts/run_benchmarks.py --strategies naive replay ewc parseval car_sr --sequences similar partial dissimilar --seeds 42 123 456 --steps 6000 --workers 4
 ```
 
-#### 5. Generate Figures and Markdown Summary Tables
+#### 6. Generate Figures and Markdown Summary Tables
 ```bash
 python scripts/plot_results.py --input results/benchmarks --output-dir results/plots
 ```
 
-#### 6. Execute Unit & Integration Test Suite
+#### 7. Execute Unit & Integration Test Suite
 ```bash
 pytest -v
 ```

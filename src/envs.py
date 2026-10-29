@@ -72,12 +72,15 @@ class FlipActions(gym.ActionWrapper):
         return 1 - action
 
 
-def make_env(cfg: Dict[str, Any], seed: int | None = None) -> gym.Env:
+def make_env(cfg: Dict[str, Any], seed: int | None = None, render_mode: str | None = None) -> gym.Env:
     """
     Constructs a Gymnasium CartPole-v1 environment with custom physics parameters
     and conflict wrappers specified by `cfg`.
     """
-    env = gym.make("CartPole-v1")
+    if render_mode is not None:
+        env = gym.make("CartPole-v1", render_mode=render_mode)
+    else:
+        env = gym.make("CartPole-v1")
     u = env.unwrapped
 
     u.gravity = float(cfg.get("gravity", 9.8))
