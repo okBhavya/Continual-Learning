@@ -1,0 +1,46 @@
+{
+  "metrics": {
+    "avg_final_return": 46.20000076293945,
+    "plasticity": 315.5333557128906,
+    "forgetting": 404.0,
+    "peak_forgetting": 404.0,
+    "backward_transfer": -404.0,
+    "forward_transfer": 60.125003814697266
+  },
+  "return_matrix": [
+    [
+      18.25,
+      47.45000076293945,
+      12.5
+    ],
+    [
+      500.0,
+      170.8000030517578,
+      10.149999618530273
+    ],
+    [
+      308.04998779296875,
+      372.3999938964844,
+      9.399999618530273
+    ],
+    [
+      33.29999923706055,
+      31.100000381469727,
+      74.19999694824219
+    ]
+  ],
+  "history": {
+    "sequence_name": "dissimilar",
+    "strategy": "replay",
+    "seed": 456,
+    "steps_per_task": 6000,
+    "eval_episodes": 20,
+    "stage_timings": [
+      50.90456676483154,
+      55.22076082229614,
+      35.523587465286255
+    ],
+    "strategy_diagnostics": {},
+    "total_elapsed_seconds": 163.1310453414917
+  }
+}

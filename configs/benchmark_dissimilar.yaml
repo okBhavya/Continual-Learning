@@ -1,0 +1,27 @@
+strategy: "car_sr"
+sequence: "dissimilar"
+steps_per_task: 10000
+eval_episodes: 20
+seed: 42
+output_dir: "results/benchmarks"
+save_checkpoint: true
+
+agent:
+  lr: 0.001
+  gamma: 0.99
+  batch_size: 64
+  buffer_size: 20000
+  target_sync: 250
+  eps_start: 1.0
+  eps_end: 0.05
+  eps_decay_steps: 5000
+  hidden_dim: 128
+  device: "cpu"
+
+strategy_kwargs:
+  mem_per_task: 3000
+  mem_batch_size: 32
+  mem_weight: 1.0
+  parseval_beta: 0.01
+  enable_projection: true
+  enable_parseval: true

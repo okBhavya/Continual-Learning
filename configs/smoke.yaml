@@ -1,0 +1,27 @@
+strategy: "car_sr"
+sequence: "similar"
+steps_per_task: 300
+eval_episodes: 2
+seed: 42
+output_dir: "results/smoke"
+save_checkpoint: true
+
+agent:
+  lr: 0.001
+  gamma: 0.99
+  batch_size: 32
+  buffer_size: 1000
+  target_sync: 50
+  eps_start: 1.0
+  eps_end: 0.1
+  eps_decay_steps: 200
+  hidden_dim: 64
+  device: "cpu"
+
+strategy_kwargs:
+  mem_per_task: 100
+  mem_batch_size: 16
+  mem_weight: 1.0
+  parseval_beta: 0.01
+  enable_projection: true
+  enable_parseval: true

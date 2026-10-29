@@ -1,0 +1,67 @@
+{
+  "metrics": {
+    "avg_final_return": 106.54999542236328,
+    "plasticity": 135.4499969482422,
+    "forgetting": 43.34999465942383,
+    "peak_forgetting": 44.77499771118164,
+    "backward_transfer": -43.34999465942383,
+    "forward_transfer": 133.4499969482422
+  },
+  "return_matrix": [
+    [
+      13.25,
+      17.600000381469727,
+      25.049999237060547
+    ],
+    [
+      159.1999969482422,
+      190.5500030517578,
+      41.20000076293945
+    ],
+    [
+      162.0500030517578,
+      144.39999389648438,
+      119.0
+    ],
+    [
+      110.6500015258789,
+      106.25,
+      102.75
+    ]
+  ],
+  "history": {
+    "sequence_name": "similar",
+    "strategy": "naive",
+    "seed": 42,
+    "steps_per_task": 10000,
+    "eval_episodes": 20,
+    "stage_timings": [
+      51.99372434616089,
+      32.41601538658142,
+      21.963783740997314
+    ],
+    "strategy_diagnostics": {}
+  },
+  "config": {
+    "strategy": "naive",
+    "sequence": "similar",
+    "steps_per_task": 10000,
+    "eval_episodes": 20,
+    "seed": 42,
+    "output_dir": "results/benchmarks",
+    "save_checkpoint": true,
+    "agent": {
+      "lr": 0.001,
+      "gamma": 0.99,
+      "batch_size": 64,
+      "buffer_size": 20000,
+      "target_sync": 250,
+      "eps_start": 1.0,
+      "eps_end": 0.05,
+      "eps_decay_steps": 5000,
+      "hidden_dim": 128,
+      "device": "cpu"
+    },
+    "strategy_kwargs": {}
+  }
+}
