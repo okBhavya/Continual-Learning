@@ -1,0 +1,51 @@
+{
+  "metrics": {
+    "avg_final_return": 25.66666603088379,
+    "plasticity": 116.75,
+    "forgetting": 136.625,
+    "peak_forgetting": 177.4749984741211,
+    "backward_transfer": -136.625,
+    "forward_transfer": 1.0750007629394531
+  },
+  "return_matrix": [
+    [
+      13.050000190734863,
+      33.75,
+      9.350000381469727
+    ],
+    [
+      101.1500015258789,
+      35.900001525878906,
+      9.300000190734863
+    ],
+    [
+      182.85000610351562,
+      200.89999389648438,
+      9.350000381469727
+    ],
+    [
+      9.300000190734863,
+      19.5,
+      48.20000076293945
+    ]
+  ],
+  "history": {
+    "sequence_name": "dissimilar",
+    "strategy": "car_sr_no_proj",
+    "seed": 123,
+    "steps_per_task": 6000,
+    "eval_episodes": 20,
+    "stage_timings": [
+      77.9358081817627,
+      75.97106885910034,
+      67.71990823745728
+    ],
+    "strategy_diagnostics": {
+      "total_updates": 17811,
+      "conflict_count": 0,
+      "conflict_ratio": 0.0,
+      "last_cosine": 0.6405383201691445
+    },
+    "total_elapsed_seconds": 228.6004319190979
+  }
+}

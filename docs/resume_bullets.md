@@ -12,7 +12,7 @@
 * **Continual Reinforcement Learning Under Task Conflict | PyTorch, Gymnasium, Scientific Python**  
   * Researched catastrophic forgetting, negative transfer, and plasticity decay in continual deep RL across sequential MDP curricula with graduated dynamic conflict (similar, partial, and dissimilar dynamics).
   * Designed and implemented **CAR-SR** (Conflict-Aware Replay with Spectral Regularization), formulating a real-time gradient-cosine conflict diagnostic $c_t = \frac{\langle g_{\text{curr}}, g_{\text{mem}} \rangle}{\|g_{\text{curr}}\| \|g_{\text{mem}}\|}$ and orthogonal gradient projection paired with Parseval frame isometry ($\|W^TW - I\|_F^2$) to eliminate destructive parameter interference.
-  * Evaluated across 5 baseline paradigms (Naive Fine-Tuning, Experience Replay, EWC, Parseval) over 3 random seeds (45 complete benchmark runs); reduced catastrophic forgetting under asymmetric conflict by 42% (97.4 ± 34.3 vs. 168.4 ± 104.8 for naive fine-tuning) while drastically stabilizing variance on similar sequences (±28.6 vs. ±148.1 for experience replay).
+  * Evaluated across 5 baseline paradigms (Naive Fine-Tuning, Experience Replay, EWC, Parseval) and full component ablations over 3 random seeds (63 complete benchmark runs); reduced catastrophic forgetting under asymmetric conflict by 42% (97.4 ± 34.3 vs. 168.4 ± 104.8 for naive fine-tuning), and isolated component contributions through ablations proving that removing projection increases forgetting by 63% (surge to 159.2) while removing Parseval degrades forward transfer by 45% (82.8 to 44.9).
 
 ### Variant 2: Machine Learning Engineer Intern
 * **Continual RL Training Pipeline & Spectral Optimization | PyTorch, Gymnasium, Pytest, CLI**  

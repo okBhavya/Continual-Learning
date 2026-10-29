@@ -235,6 +235,45 @@ def plot_stability_plasticity_pareto(df: pd.DataFrame, output_dir: str):
     print(f"Saved: {plot_path}")
 
 
+def plot_ablation_comparison(df: pd.DataFrame, output_dir: str):
+    """Generates an ablation breakdown figure comparing CAR-SR vs ablated variants."""
+    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+    ablation_strats = ["car_sr", "car_sr_no_proj", "car_sr_no_parseval"]
+    labels = ["Full CAR-SR", "w/o Projection", "w/o Parseval"]
+    colors = [STRATEGY_COLORS[s] for s in ablation_strats]
+
+    # Focus on the 'partial' sequence where asymmetric conflict is active
+    sub = df[df["sequence"] == "partial"]
+
+    # 1. Catastrophic Forgetting
+    ax1 = axes[0]
+    f_means = [sub[sub["strategy"] == s]["forgetting"].mean() for s in ablation_strats]
+    f_stds = [sub[sub["strategy"] == s]["forgetting"].std() for s in ablation_strats]
+    bars1 = ax1.bar(labels, f_means, yerr=f_stds, capsize=5, color=colors, alpha=0.9, edgecolor="black", linewidth=1.2)
+    ax1.set_title("Ablation: Forgetting on Partial Conflict\n(Lower is Better)")
+    ax1.set_ylabel("Catastrophic Forgetting")
+    for bar in bars1:
+        yval = bar.get_height()
+        ax1.text(bar.get_x() + bar.get_width()/2.0, yval + 5, f"{yval:.1f}", ha="center", va="bottom", fontweight="bold")
+
+    # 2. Forward Transfer
+    ax2 = axes[1]
+    fwt_means = [sub[sub["strategy"] == s]["forward_transfer"].mean() for s in ablation_strats]
+    fwt_stds = [sub[sub["strategy"] == s]["forward_transfer"].std() for s in ablation_strats]
+    bars2 = ax2.bar(labels, fwt_means, yerr=fwt_stds, capsize=5, color=colors, alpha=0.9, edgecolor="black", linewidth=1.2)
+    ax2.set_title("Ablation: Forward Transfer on Partial Conflict\n(Higher is Better)")
+    ax2.set_ylabel("Forward Transfer (FWT)")
+    for bar in bars2:
+        yval = bar.get_height()
+        ax2.text(bar.get_x() + bar.get_width()/2.0, yval + 2, f"{yval:.1f}", ha="center", va="bottom", fontweight="bold")
+
+    plt.tight_layout()
+    plot_path = os.path.join(output_dir, "ablation_breakdown.png")
+    plt.savefig(plot_path, dpi=300)
+    plt.close()
+    print(f"Saved: {plot_path}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Plot Continual RL Results")
     parser.add_argument("--input", type=str, default="results", help="Directory containing result JSON files")
@@ -257,6 +296,7 @@ def main():
     plot_performance_and_forgetting(df, args.output_dir)
     plot_forgetting_vs_conflict(df, args.output_dir)
     plot_stability_plasticity_pareto(df, args.output_dir)
+    plot_ablation_comparison(df, args.output_dir)
 
 
 if __name__ == "__main__":
