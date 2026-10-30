@@ -16,9 +16,9 @@
 
 ### Variant 2: Machine Learning Engineer Intern
 * **Continual RL Training Pipeline & Spectral Optimization | PyTorch, Gymnasium, Pytest, CLI**  
-  * Engineered PyTorch continual RL pipeline benchmarking 5 algorithms across 63 runs using 4 parallel workers.
-  * Developed Parseval spectral regularization and gradient projection, reducing catastrophic forgetting by 42% across 3 curricula.
-  * Built modular CLI tooling and automated Pytest suite delivering 100% pass rate across 18 tests.
+  * Engineered modular PyTorch continual RL pipeline benchmarking 5 algorithms across 63 runs using 4 parallel workers.
+  * Developed Parseval spectral regularization and gradient projection, reducing catastrophic forgetting by 42%.
+  * Built modular CLI tooling and automated Pytest suite delivering 100% pass rate across 18 tests in 7 seconds.
 
 ### Variant 3: AI Agent Training & Evaluation Intern
 * **Continual Agent Evaluation & Benchmarking System | PyTorch, Gymnasium, Pandas, Matplotlib**  
